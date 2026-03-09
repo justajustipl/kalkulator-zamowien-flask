@@ -18,3 +18,8 @@ Aplikacja webowa do obliczania ceny produktów i składania zamówień.
 - Flask
 - HTML
 - CSS
+
+## Uruchomienie
+pip install flask
+python app.py
+
