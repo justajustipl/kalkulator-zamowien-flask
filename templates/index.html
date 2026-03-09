@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html> 
+<head>
+    <title>Kalkulator ceny</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<h1>Kalkulator ceny produktu</h1>
+
+<form method="POST">
+
+<label>Produkt</label>
+<select name="produkt">
+<option value="drukarka">Drukarka 3D</option>
+<option value="filament">Filament</option>
+<option value="czesci">Części</option>
+</select>
+
+<label>Ilość</label>
+<input type="number" name="ilosc" min="1" required>
+
+<h3>Opcje dodatkowe</h3>
+
+<label>
+<input type="checkbox" name="gwarancja">
+Gwarancja rozszerzona
+</label>
+
+<label>
+<input type="checkbox" name="dostawa">
+Dostawa ekspresowa
+</label>
+
+<button type="submit">Dodaj do zamówienia</button>
+
+</form>
+
+{% if cena %}
+<h2>Ostatnia wycena: {{cena}} zł</h2>
+{% endif %}
+
+<h2>Koszyk</h2>
+
+<ul>
+{% for item in koszyk %}
+<li>
+{{item.produkt}} - {{item.ilosc}} szt - {{item.cena}} zł
+<a href="/usun/{{loop.index0}}">Usuń</a>
+</li>
+{% endfor %}
+</ul>
+
+<a href="/wyczysc">
+<button>Wyczyść koszyk</button>
+</a>
+
+<h3>Suma: {{suma}} zł</h3>
+
+<h2>Złóż zamówienie</h2>
+
+<form action="/zamowienie" method="POST">
+
+<label>Imię</label>
+<input type="text" name="imie" required>
+
+<label>Email</label>
+<input type="email" name="email" required>
+
+<button type="submit">Złóż zamówienie</button>
+
+</form>
+</body>
+</html>
