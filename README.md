@@ -21,5 +21,14 @@ Aplikacja webowa do obliczania ceny produktów i składania zamówień.
 
 ## Uruchomienie
 pip install flask
+
 python app.py
 
+## Podgląd aplikacji
+
+![Podgląd aplikacji](screenshot.png)
+![Podgląd podziękowania](screenshot2.png)
+
+## Autor
+
+Projekt wykonany w ramach praktyk zawodowych.
